@@ -1,5 +1,8 @@
-# asyan.github.io/jskill/
+Repository for JavaScript projects
 
-## learning js
+## Weather app 
 
 ## Bash Analyzer
+
+
+Check it out on [JS Skill](asyan.github.io/jskill/)
