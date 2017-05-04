@@ -1,53 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="countryApp">
 <head>
 	<meta charset = "utf-8">
 	<title> Single Page application</title>
+
   <link rel="stylesheet" type="text/css" href="main.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
   <script src="live-search.js"></script>
 </head>
-<body>
-
-	<center>
-		<h1> Weather API application </h1><br>
-        <form id="live-search" action="" class="styled" method="post">
-          <fieldset>
-            <input type="text" class="text-input" 
-              id="filter" placeholder="Enter your city" value="" />
-            <span id="filter-count"></span>
-          </fieldset>
-        </form>
-
-
-        <button type="button" id="btn">Let me know</button> <br><br>
-        <textarea disabled rows="10" cols="45"> </textarea> <br>
-
-        <p>
-          <a href="analyzer.html"> Bash analyzer </a>
-        </p>
-	</center>
-
+<body ng-controller="CountryCtrl">
   <center>
+    <h1> Weather API application </h1><br>
+      <form id="live-search" action="" class="styled" method="post">
+        <input type="text" class="text-input" 
+          id="filter" placeholder="Enter your city" value="" />
+        <button type="button" id="btn">Let me know</button> 
+      </form>
     <p>
-          Available cities:
+      Available cities:
       <nav>
         <ul>
           <li>Moscow</li>
-          <li>London</li>
+          <li>Sydney</li>
           <li>Washington</li>
           <li>Tokyo</li>
+
         </ul>
       </nav>
     </p>
-    </center>
+
+
+    <script>/*
+$http.get('http://api.openweathermap.org/data/2.5/forecast?id=2147714&APPID=8b60be7cf93c48694f9442e0b45f539c').
+    then(function success(response) {
+            $scope.question=response.data.question;
+    }, function error(response){
+            console.log("Возникла ошибка");
+    }
+);*/
+
+</script>
+
+<div ng-controller="myCtrl">
+
+  <textarea cols="200">{{myWelcome}}</textarea>
+
+</div>
+
+<script>
+let app = angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http) {
+    $http.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8b60be7cf93c48694f9442e0b45f539c&units=metric')
+   //$scope.weather = [];
+    .then(function(response) {
+      //  $scope.weather = response;
+        $scope.myWelcome = response.data;
+    });
+});
+</script><br>
+
+<table>
+	      <tr>
+	        <th>Code</th>
+	        <th>Country</th>
+	        <th>Population</th>
+	      </tr>
+	      <tr ng-repeat="country in countries | orderBy: 'name' ">
+	        <td>{{country.cod}}</td>
+	        <td>{{country.name}}</td>
+	        <td>{{country.population}}</td>
+	      </tr>
+	    </table>
+
+<script>
+	      let countryApp = angular.module('countryApp', []);
+	      countryApp.controller('CountryCtrl', function ($scope, $http){
+	        $http.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8b60be7cf93c48694f9442e0b45f539c&units=metric').success(function(data) {
+	          $scope.countries = data;
+	        });
+	      });
+</script>
 
 
 
-<!-- UNLESS U ADD LIVE SEARCH
-    <script>
-        alert(http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b1b15e88fa797225412429c1c50c122a1);
-    </script> -->
-
+    <p>
+      <a href="analyzer.html"> Bash analyzer </a>
+    </p>
+  </center>
 
 </body>
 </html>
