@@ -1,21 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="countryApp">
+<html>
 <head>
-	<meta charset = "utf-8">
+  <meta charset = "utf-8">
 	<title> Single Page application</title>
 
-  <link rel="stylesheet" type="text/css" href="main.css">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
   <script src="live-search.js"></script>
+  <script src="tempApp.js"></script>
 </head>
-<body ng-controller="CountryCtrl">
+<body>
   <center>
     <h1> Weather API application </h1><br>
       <form id="live-search" action="" class="styled" method="post">
         <input type="text" class="text-input" 
           id="filter" placeholder="Enter your city" value="" />
-        <button type="button" id="btn">Let me know</button> 
+        <button type="button" id="btn" onclick="getTemp()">Let me know</button> 
       </form>
     <p>
       Available cities:
@@ -30,59 +31,10 @@
       </nav>
     </p>
 
-
-    <script>/*
-$http.get('http://api.openweathermap.org/data/2.5/forecast?id=2147714&APPID=8b60be7cf93c48694f9442e0b45f539c').
-    then(function success(response) {
-            $scope.question=response.data.question;
-    }, function error(response){
-            console.log("Возникла ошибка");
-    }
-);*/
-
-</script>
-
-<div ng-controller="myCtrl">
-
-  <textarea cols="200">{{myWelcome}}</textarea>
-
+<div ng-app="myApp" ng-controller="myCtrl"> 
+  <p>Today's welcome message is:</p>
+  <h6>{{myWelcome}}</h6>
 </div>
-
-<script>
-let app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http) {
-    $http.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8b60be7cf93c48694f9442e0b45f539c&units=metric')
-   //$scope.weather = [];
-    .then(function(response) {
-      //  $scope.weather = response;
-        $scope.myWelcome = response.data;
-    });
-});
-</script><br>
-
-<table>
-	      <tr>
-	        <th>Code</th>
-	        <th>Country</th>
-	        <th>Population</th>
-	      </tr>
-	      <tr ng-repeat="country in countries | orderBy: 'name' ">
-	        <td>{{country.cod}}</td>
-	        <td>{{country.name}}</td>
-	        <td>{{country.population}}</td>
-	      </tr>
-	    </table>
-
-<script>
-	      let countryApp = angular.module('countryApp', []);
-	      countryApp.controller('CountryCtrl', function ($scope, $http){
-	        $http.get('http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=8b60be7cf93c48694f9442e0b45f539c&units=metric').success(function(data) {
-	          $scope.countries = data;
-	        });
-	      });
-</script>
-
-
 
     <p>
       <a href="analyzer.html"> Bash analyzer </a>
