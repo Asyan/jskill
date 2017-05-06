@@ -5,4 +5,4 @@ Repository for JavaScript projects
 ## Bash Analyzer
 
 
-Check it out on [JS Skill](https://asyan.github.io/jskill/)
+Check it out on [JS projects](https://asyan.github.io/jskill/)
