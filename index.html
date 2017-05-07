@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset = "utf-8">
-	<title> Single Page application</title>
+  <title> Single Page application </title>
 
   <link rel="stylesheet" type="text/css" href="css/main.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -10,32 +10,21 @@
   <script src="live-search.js"></script>
   <script src="tempApp.js"></script>
 </head>
-<body>
+<body ng-app="myApp">
   <center>
     <h1> Weather API application </h1><br>
-      <form id="live-search" action="" class="styled" method="post">
-        <input type="text" class="text-input" 
-          id="filter" placeholder="Enter your city" value="" />
-        <button type="button" id="btn" onclick="getTemp()">Let me know</button> 
-      </form>
-    <div class="list">
-      Available cities:
-      <nav>
-        <ul>
-          <li>Moscow</li>
-          <li>Sydney</li>
-          <li>Washington</li>
-          <li>Tokyo</li>
 
-        </ul>
-      </nav>
-    </div>
-
-<div ng-app="myApp" ng-controller="myCtrl"> 
-  <p>Today's welcome message is:</p>
-  <h6>{{myWelcome}}</h6>
-</div>
-
+    <div ng-controller="myCtrl">
+      <input type="text" ng-model="cityName" 
+        id="filter" placeholder="Enter city name">
+      <button ng-click="getCity(cityName)" class="btn">Let me know</button>
+      <h4>Weather today: </h4>
+      
+      City: {{weather.name}}<br>
+      Temperature: {{weather.main.temp}}&deg;C
+    </div> 
+    <br>
+    <hr>
     <p>
       <a href="bash/analyzer.html"> Bash analyzer </a>
     </p>
