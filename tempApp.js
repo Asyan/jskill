@@ -5,7 +5,7 @@ angular.module('myApp', [])
     if (link == '') 
       alert("Enter a city name");
     else {
-      $http.get('http://api.openweathermap.org/data/2.5/weather?q=' + link + '&APPID=8b60be7cf93c48694f9442e0b45f539c&units=metric')
+      $http.get('https://api.apixu.com/v1/current.json?key=98fe53844a024b19a7632232170705&q=' + link)
       .then(function(response) {
         $scope.weather = response.data;  
       })
