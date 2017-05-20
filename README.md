@@ -1,8 +1,8 @@
-Repository for JavaScript projects
+#Repository for JavaScript projects
 
-## Weather app 
+### Weather app 
 
-## Bash Analyzer
+### Bash Analyzer
 
 
-Check it out on [JS projects](https://asyan.github.io/jskill/)
+Check it out on [JS projects](https://yellowsphere.github.io/jskill/)
