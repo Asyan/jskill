@@ -1,8 +1,3 @@
-#Repository for JavaScript projects
+## Weather api application 
 
-### Weather app 
-
-### Bash Analyzer
-
-
-Check it out on [JS projects](https://yellowsphere.github.io/jskill/)
+Check it out on [wheather-app](https://yellowsphere.github.io/wheather-js/)
