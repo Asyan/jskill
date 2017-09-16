@@ -1,6 +1,6 @@
+document.body.style.textAlign = 'center';
+
 function getTemperature() {
-
-
     angular.module('myApp', [])
         .controller('myCtrl', function($scope, $http) {
             $scope.cityName = '';

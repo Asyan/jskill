@@ -1,21 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset = "utf-8">
-  <title> Single Page Weather Application </title>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
-  <script src="tempApp.js"></script>
+    <meta charset = "utf-8">
+    <title>Single Page Weather Application</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 </head>
 <body ng-app="myApp">
-    <h1> Weather API application </h1>
-      <div ng-controller="myCtrl">
-        <input type="text" ng-model="cityName"
-          id="filter" placeholder="Enter city name">
-        <button ng-click="getCity(cityName)" class="btn">Let me know</button>
+    <h1>Weather API application</h1>
+    <div ng-controller="myCtrl">
+        <input type="text" ng-model="cityName" placeholder="Enter a city name">
+        <button ng-click="getCity(cityName)">Let know</button>
         <h4>Weather today: </h4>
         City: {{weather.location.name}}<br>
         Temperature: {{weather.current.temp_c}}&deg;C
-      </div>
-    <script>document.body.style.textAlign = 'center';</script>
+    </div>
+    <script src="tempApp.js"></script>
 </body>
 </html>
