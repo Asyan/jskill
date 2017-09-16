@@ -1,6 +1,6 @@
 ## Weather api application 
 
-Check it out on [weather-app](https://yellowsphere.github.io/wheather-app/)
+Check it out on [weather-app](https://yellowsphere.github.io/weather-app/)
 
 ### Usage
 
